@@ -85,12 +85,12 @@ jobs:
           # Для каждого пересобранного образа 
           # устанавливаем тег latest, чтобы потом
           # на сервере и в docker-compose.yml не указывать версию
-          tags: ваш-логин-на-docker-hub/taski_backend:latest
+          tags: ortega0101/taski_backend:latest
   deploy:
     runs-on: ubuntu-latest
-    # needs: 
-    #   # Дождёмся билда всех образов Taski
-    #   - build_and_push_to_docker_hub
+    needs: 
+      # Дождёмся билда всех образов Taski
+      - build_and_push_to_docker_hub
     #   - build_frontend_and_push_to_docker_hub
     #   - build_gateway_and_push_to_docker_hub
     steps:
